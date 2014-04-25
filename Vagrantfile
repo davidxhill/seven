@@ -39,12 +39,12 @@ global_composer_packages = [
 ]
 
 include_php_myadmin = true
-include_clockwork = true
-include_phpunit = true
 
 #laravel package config
 include_laravel = true
 l4_set_env_vars = true
+
+include_seven_bootstrapper = true
 
 #vagrant config
 Vagrant.configure("2") do |config|
@@ -84,19 +84,23 @@ Vagrant.configure("2") do |config|
     end
 
     if include_vim_prefs === true
-        #config.vm.provision "shell", path: "scripts/vim.sh"
+       config.vm.provision "shell", path: "scripts/vim.sh"
     end
 
     if include_ruby === true
-        #config.vm.provision "shell", path: "scripts/ruby.sh", args: "#{rvm_version} " + gem_packages.join(" ")
+       config.vm.provision "shell", path: "scripts/ruby.sh", args: "#{rvm_version} " + gem_packages.join(" ")
     end
 
     if include_node === true
-       # config.vm.provision "shell", path: "scripts/node.sh", args: global_node_packages.join(" ")
+       config.vm.provision "shell", path: "scripts/node.sh", args: global_node_packages.join(" ")
     end
 
     if include_composer === true
        config.vm.provision "shell", path: "scripts/composer.sh", args: global_composer_packages.join(" ")
+    end
+    
+    if include_seven_bootstrapper === true
+       config.vm.provision "shell", path: "scripts/bootstrapper.sh"
     end
 
 end

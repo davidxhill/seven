@@ -3,8 +3,6 @@
 readonly server_id=$1
 readonly doc_root=$2
 
-echo "${server_id} ${doc_root}"
-
 echo "------ Installing Apache ------"
 
 sudo apt-get update
