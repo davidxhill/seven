@@ -1,0 +1,4 @@
+seven
+=====
+
+Vagrant box.
