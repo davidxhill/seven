@@ -17,17 +17,18 @@ Seven is a vagrant bash provisioning scripts that allows you to configure and in
 * PhpMyAdmin
 * Vim(spf13)
 
-refactoring/improved docs to come...
+######Install directions to come.
+######refactoring/improved docs to come...
 
-features to come(plus lots more):
-laravel
-  env var
-  composer packages
-    clockwork
-    and other dev packages
-grunt config/templates
-Nginx
-More Databases options
+####Features to come(plus lots more):
+*laravel
+ * env var
+  *composer packages
+    *clockwork
+    *and other dev packages
+*grunt config/templates
+*Nginx
+*More Databases options
 
 
 ###Thanks to:
