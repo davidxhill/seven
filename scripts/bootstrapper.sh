@@ -8,6 +8,7 @@ fi
 
 if [ ! -d "/vagrant/public/sass" ]; then
     sudo mkdir /vagrant/public/sass
+    sudo touch /vagrant/public/sass/global.scss
 fi
 
 if [ ! -d "/vagrant/public/img" ]; then
