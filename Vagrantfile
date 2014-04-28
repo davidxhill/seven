@@ -7,6 +7,8 @@ server_mem = "1024"
 document_root = "/vagrant"
 public_root = "/vagrant/public"
 
+open_livereload = true
+
 #db configs - currently only supports mysql.
 db_type = "mysql"
 db_passwd = "root"
@@ -56,6 +58,11 @@ Vagrant.configure("2") do |config|
 
     #setting static ip
     config.vm.network "private_network", ip: server_ip
+
+    #open port for livereload
+    if open_livereload === true
+        config.vm.network :forwarded_port, guest: 35729, host: 35729
+    end
 
     #set hostname
     config.vm.hostname = "dev"
