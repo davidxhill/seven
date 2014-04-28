@@ -20,6 +20,7 @@ include_vim_prefs = false
 include_node = true
 global_node_packages = [
     "grunt-cli",
+    "grunt-init",
     "jamjs",
     "testem"
 ]

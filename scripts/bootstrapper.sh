@@ -75,7 +75,7 @@ module.exports = function(grunt) {
                 livereload: true,
             },
             css: {
-                files: ['public/css/*.scss'],
+                files: ['public/sass/*.scss'],
                 tasks: ['sass'],
                 options: {
                     spawn: false,
@@ -99,7 +99,7 @@ module.exports = function(grunt) {
                     style: 'compressed'
                 },
                 files: {
-                    'public/css/global.css' : 'public/sass/*.scss'
+                    'public/css/global.css' : 'public/sass/global.scss'
                 }
             }
         },
@@ -117,5 +117,6 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['sass']);
 
 };
+
 EOF
 
