@@ -1,6 +1,12 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+#paths to scripts
+github_user = "davidxhill"
+github_repo = "seven"
+github_branch = "testing"
+path_to_scripts = "https://raw.githubusercontent.com/#{github_user}/#{github_repo}/#{github_branch}/scripts/"
+
 #server configs
 server_ip = "10.22.2.2"
 server_mem = "1024"
@@ -76,40 +82,40 @@ Vagrant.configure("2") do |config|
     end
 
     #base
-    config.vm.provision "shell", path: "scripts/base.sh" 
+    config.vm.provision "shell", path: "#{path_to_scripts}/base.sh" 
 
     #php
-    config.vm.provision "shell", path: "scripts/php.sh" 
+    config.vm.provision "shell", path: "#{path_to_scripts}/php.sh" 
 
     #apache
-    config.vm.provision "shell", path: "scripts/apache.sh", args: "#{server_ip} #{public_root}"
+    config.vm.provision "shell", path: "#{path_to_scripts}/apache.sh", args: "#{server_ip} #{public_root}"
 
     if db_type === "mysql"
-       config.vm.provision "shell", path: "scripts/mysql.sh", args: "#{db_passwd} #{db_permission} #{db_create} #{db_name}"
+       config.vm.provision "shell", path: "#{path_to_scripts}/mysql.sh", args: "#{db_passwd} #{db_permission} #{db_create} #{db_name}"
     end
 
     if include_phpmyadmin === true
-       config.vm.provision "shell", path: "scripts/phpmyadmin.sh", args: "#{phpmyadmin_passwd}"
+       config.vm.provision "shell", path: "#{path_to_scripts}/phpmyadmin.sh", args: "#{phpmyadmin_passwd}"
     end
 
     if include_vim_prefs === true
-       config.vm.provision "shell", path: "scripts/vim.sh"
+       config.vm.provision "shell", path: "#{path_to_scripts}/vim.sh"
     end
 
     if include_ruby === true
-       config.vm.provision "shell", path: "scripts/ruby.sh", args: "#{rvm_version} " + gem_packages.join(" ")
+       config.vm.provision "shell", path: "#{path_to_scripts}/ruby.sh", args: "#{rvm_version} " + gem_packages.join(" ")
     end
 
     if include_node === true
-       config.vm.provision "shell", path: "scripts/node.sh", args: global_node_packages.join(" ")
+       config.vm.provision "shell", path: "#{path_to_scripts}/node.sh", args: global_node_packages.join(" ")
     end
 
     if include_composer === true
-       config.vm.provision "shell", path: "scripts/composer.sh", args: global_composer_packages.join(" ")
+       config.vm.provision "shell", path: "#{path_to_scripts}/composer.sh", args: global_composer_packages.join(" ")
     end
     
     if include_seven_bootstrapper === true
-       config.vm.provision "shell", path: "scripts/bootstrapper.sh"
+       config.vm.provision "shell", path: "#{path_to_scripts}/bootstrapper.sh"
     end
 
 end

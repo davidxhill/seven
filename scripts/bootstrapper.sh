@@ -6,6 +6,18 @@ if [ ! -d "/vagrant/public" ]; then
     sudo mkdir /vagrant/public
 fi
 
+if [[ ! -f "/vagrant/public/index.php" ]]; then
+    sudo cat > /vagrant/public/index.php <<EOF
+    <?php phpinfo();
+EOF
+fi
+
+if [[ ! -f "/vagrant/public/.htaccess" ]]; then
+    sudo cat > /vagrant/public/.htaccess <<EOF
+    DirectoryIndex index.html index.htm default.htm index.php index.php3 index.phtml index.php5 index.shtml mwindex.phtml
+EOF
+fi
+
 if [ ! -d "/vagrant/public/sass" ]; then
     sudo mkdir /vagrant/public/sass
     sudo touch /vagrant/public/sass/global.scss
