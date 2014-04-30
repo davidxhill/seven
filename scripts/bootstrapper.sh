@@ -26,7 +26,8 @@ fi
 
 echo "------ Creating Package.json ------"
 
-sudo cat > /vagrant/Package.json <<EOF
+if [[ ! -f "/vagrant/Package.json" ]]; then
+    sudo cat > /vagrant/Package.json <<EOF
 {
   "name": "SevenProject",
   "version": "0.1.0",
@@ -40,6 +41,8 @@ sudo cat > /vagrant/Package.json <<EOF
   }
 }
 EOF
+
+fi
 
 echo "------ Installing NPM Packages ------"
 

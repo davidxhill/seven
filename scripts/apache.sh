@@ -5,8 +5,12 @@ readonly doc_root=$2
 
 echo "------ Installing Apache ------"
 
-sudo apt-get update
-sudo apt-get install -y apache2 libapache2-mod-php5
+if type apache2 > /dev/null 2>&1; then
+    echo "apache2 is already installed. Aborted."
+else
+    sudo apt-get update
+    sudo apt-get install -y apache2 libapache2-mod-php5
+fi
 
 echo "------ Configuring Apache ------"
 
@@ -38,7 +42,6 @@ if [[ ! -f "/etc/apache2/sites-available/${server_id}.conf" ]]; then
 
     CustomLog \${APACHE_LOG_DIR}/${server_id}-access.log combined
 
-
 </VirtualHost>
 EOF
 
@@ -46,7 +49,6 @@ EOF
     sudo chown -R www-data:www-data /vagrant/
     sudo chmod -R 775 /vagrant/
     cd /etc/apache2/sites-available/ && a2ensite ${server_id}.conf
-
 fi
 
 sudo service apache2 restart

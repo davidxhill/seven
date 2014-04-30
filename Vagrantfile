@@ -17,7 +17,7 @@ db_name = "seven"
 db_permission = true #set permissions to allow standard connections through SequelPro
 
 #packages config
-include_vim_prefs = false
+include_vim_prefs = true
 
 include_node = true
 global_node_packages = [
@@ -41,7 +41,8 @@ global_composer_packages = [
     "phpunit/phpunit:4.0.*"
 ]
 
-include_php_myadmin = true
+include_phpmyadmin = true
+phpmyadmin_passwd = "root"
 
 #laravel package config
 include_laravel = true
@@ -87,8 +88,8 @@ Vagrant.configure("2") do |config|
        config.vm.provision "shell", path: "scripts/mysql.sh", args: "#{db_passwd} #{db_permission} #{db_create} #{db_name}"
     end
 
-    if include_php_myadmin === true
-       config.vm.provision "shell", path: "scripts/phpmyadmin.sh"
+    if include_phpmyadmin === true
+       config.vm.provision "shell", path: "scripts/phpmyadmin.sh", args: "#{phpmyadmin_passwd}"
     end
 
     if include_vim_prefs === true

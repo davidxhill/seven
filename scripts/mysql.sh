@@ -14,16 +14,16 @@ sudo apt-get update
 
 sudo apt-get install -y mysql-server mysql-client
 
-if [[ db_permission = true ]]; then
+if [[ ${db_permission} = true ]]; then
     echo "------ Setting Mysql Permissions ------"
 
     sudo sed -i "s/bind-address.*=.*/bind-address=0.0.0.0/" /etc/mysql/my.cnf
-    MYSQLGRANT="GRANT ALL ON *.* to root@'%' IDENTIFIED BY 'root'; FLUSH PRIVILEGES;"
+    MYSQLGRANT="GRANT ALL ON *.* to root@'%' IDENTIFIED BY '${db_passwd}'; FLUSH PRIVILEGES;"
     sudo mysql -u root -p${db_passwd} mysql -e "${MYSQLGRANT}"
     sudo service mysql restart 
 fi
 
-if [[ create_db ]]; then
+if [[ ${create_db} ]]; then
     echo "------ Creating Database ------"
     
     mysql --user=root --password="${db_passwd}" -Bse "CREATE DATABASE IF NOT EXISTS \`${db_name}\` CHARACTER SET utf8 COLLATE utf8_general_ci"
