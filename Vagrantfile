@@ -5,7 +5,7 @@
 github_user = "davidxhill"
 github_repo = "seven"
 github_branch = "testing"
-path_to_scripts = "https://raw.githubusercontent.com/#{github_user}/#{github_repo}/#{github_branch}/scripts/"
+path_to_scripts = "https://raw.githubusercontent.com/#{github_user}/#{github_repo}/#{github_branch}/scripts"
 
 #server configs
 server_ip = "10.22.2.2"
