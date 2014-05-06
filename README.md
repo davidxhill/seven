@@ -3,6 +3,14 @@ seven
 
 Seven is a vagrant bash provisioning scripts that allows you to configure and include only packages that you need. Still very early..command line tool and version select options coming soon.
 
+###Installation
+
+````bash
+ curl -o Vagrantfile https://raw.githubusercontent.com/davidxhill/seven/master/Vagrantfile
+````
+Run command in project's root directory, config Vagrantfile and run vagrant up.
+
+
 ####Currently includes:
 * LAMP Stack
   * PHP 5.5.11
