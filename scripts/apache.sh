@@ -5,12 +5,8 @@ readonly doc_root=$2
 
 echo "------ Installing Apache ------"
 
-if type apache2 > /dev/null 2>&1; then
-    echo "apache2 is already installed. Aborted."
-else
-    sudo apt-get update
-    sudo apt-get install -y apache2 libapache2-mod-php5
-fi
+sudo apt-get update
+sudo apt-get install -y apache2 libapache2-mod-php5
 
 echo "------ Configuring Apache ------"
 
