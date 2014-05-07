@@ -4,7 +4,7 @@
 #paths to scripts
 github_user = "davidxhill"
 github_repo = "seven"
-github_branch = "testing"
+github_branch = "master"
 path_to_scripts = "https://raw.githubusercontent.com/#{github_user}/#{github_repo}/#{github_branch}/scripts"
 
 #server configs
