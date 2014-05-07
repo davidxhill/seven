@@ -20,7 +20,7 @@ db_type = "mysql"
 db_passwd = "root"
 db_create = true
 db_name = "seven"
-db_permission = true #set permissions to allow standard connections through SequelPro
+db_permission = true
 
 #packages config
 include_vim_prefs = true
@@ -75,7 +75,7 @@ Vagrant.configure("2") do |config|
     config.vm.hostname = "dev"
 
     #config synced folder
-    config.vm.synced_folder "./", "/vagrant", id: "vagrant-root", :owner => "vagrant", :group => "www-data"
+    config.vm.synced_folder "./", "/vagrant", id: "vagrant-root", :owner => "vagrant", :group => "www-data", :mount_options => ["dmode=775,fmode=664"]
     
     config.vm.provider :virtualbox do |vb|
         vb.customize ["modifyvm", :id, "--memory", server_mem]
