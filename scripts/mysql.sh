@@ -23,7 +23,7 @@ if [[ ${db_permission} = true ]]; then
     sudo service mysql restart 
 fi
 
-if [[ ${create_db} ]]; then
+if [[ ${db_create} ]]; then
     echo "------ Creating Database ------"
     
     mysql --user=root --password="${db_passwd}" -Bse "CREATE DATABASE IF NOT EXISTS \`${db_name}\` CHARACTER SET utf8 COLLATE utf8_general_ci"
