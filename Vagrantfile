@@ -12,8 +12,10 @@ server_ip = "10.22.2.2"
 server_mem = "1024"
 document_root = "/vagrant"
 public_root = "/vagrant/public"
+hostname = "dev"
 
-open_livereload = true
+#Enable livereload
+open_livereload = false
 
 #db configs - currently only supports mysql.
 db_type = "mysql"
@@ -23,7 +25,10 @@ db_name = "seven"
 db_permission = true
 
 #packages config
-include_vim_prefs = true
+include_bashrc = true
+path_to_bash = "https://raw.githubusercontent.com/davidxhill/mySettings/master/.bashrc-vm"
+
+include_vim_prefs = true # Currently SPF13 custom vimrcs to come.
 
 include_node = true
 global_node_packages = [
@@ -72,7 +77,7 @@ Vagrant.configure("2") do |config|
     end
 
     #set hostname
-    config.vm.hostname = "dev"
+    config.vm.hostname = hostname
 
     #config synced folder
     config.vm.synced_folder "./", "/vagrant", id: "vagrant-root", :owner => "vagrant", :group => "www-data", :mount_options => ["dmode=775,fmode=664"]
@@ -82,7 +87,7 @@ Vagrant.configure("2") do |config|
     end
 
     #base
-    config.vm.provision "shell", path: "#{path_to_scripts}/base.sh" 
+    config.vm.provision "shell", path: "#{path_to_scripts}/base.sh", args: "#{include_bashrc} #{path_to_bash}"
 
     #php
     config.vm.provision "shell", path: "#{path_to_scripts}/php.sh" 
