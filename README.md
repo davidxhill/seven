@@ -6,7 +6,7 @@ Seven is a vagrant bash provisioning scripts that allows you to configure and in
 ###Installation
 
 ````bash
- curl -o Vagrantfile https://raw.githubusercontent.com/davidxhill/seven/master/Vagrantfile
+ curl -o Vagrantfile https://raw.githubusercontent.com/davidxhill/seven/testing/Vagrantfile
 ````
 Run command in project's root directory, config Vagrantfile and run vagrant up.
 
