@@ -10,7 +10,6 @@ Seven is a vagrant bash provisioning scripts that allows you to configure and in
 ````
 Run command in project's root directory, config Vagrantfile and run vagrant up.
 
-
 ####Currently includes:
 * LAMP Stack
   * PHP 5.5.11
@@ -24,20 +23,6 @@ Run command in project's root directory, config Vagrantfile and run vagrant up.
   * Set up Global installs (sass)
 * PhpMyAdmin
 * Vim(spf13)
-
-######Install directions to come.
-######refactoring/improved docs to come...
-
-####Features to come(plus lots more):
-*laravel
- * env var
-  *composer packages
-    *clockwork
-    *and other dev packages
-*grunt config/templates
-*Nginx
-*More Databases options
-
 
 ###Thanks to:
 [terion-name](https://github.com/terion-name) for the concept([Lagrant](https://github.com/terion-name/Lagrant)).
