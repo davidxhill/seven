@@ -59,9 +59,9 @@ include_seven_bootstrapper = true
 #vagrant config
 Vagrant.configure("2") do |config|
 
-    #server set to Ubuntu 12.04
-    config.vm.box = "precise64"
-    config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+    #server set to Debian 8.1
+    config.vm.box = "ARTACK/debian-jessie"
+    config.vm.box_url = "https://atlas.hashicorp.com/ARTACK/boxes/debian-jessie"
 
     #setting static ip
     config.vm.network "private_network", ip: server_ip

@@ -2,9 +2,8 @@
 
 echo "------ Installing Php and Friends ------"
 
-sudo add-apt-repository -y ppa:ondrej/php5
 sudo apt-get update
-sudo apt-get install -y php5-cli php5-fpm php5-mysql php5-sqlite php5-curl php5-gd php5-gmp php5-mcrypt php5-xdebug php5-memcached php5-imagick php5-intl
+sudo apt-get install -y php7.0-cli php7.0-fpm php7.0-mysql php7.0-sqlite php7.0-curl php7.0-gd php7.0-gmp php7.0-mcrypt php7.0-xdebug php7.0-memcached php7.0-imagick php7.0-intl
 
 if [[ ! -f "/etc/php5/mods-available/xdebug.ini" ]]; then
 
@@ -25,4 +24,4 @@ EOF
 
 fi
 
-sudo service php5-fpm restart
+sudo service php7.0-fpm restart
